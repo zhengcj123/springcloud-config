@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-openfeign-hystrix-order
+
+eureka:
+  client:  #客户端注册进eureka服务列表内
+    register-with-eureka: false  #表示是否将自己注册进eurekaServer默认为true
+#    fetch-registry: true  #是否从EurekaServer抓取已有的注册信息，默认为true 单节点无所谓，集群必须为true才能配合ribbon使用负载均衡
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+      
+feign:
+  hystrix:
+    enabled: true #如果处理自身的容错就开启。开启方式与生产端不一样。
+      
